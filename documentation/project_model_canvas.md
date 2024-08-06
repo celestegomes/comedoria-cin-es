@@ -1,71 +1,49 @@
-# Project Model Canvas para Webapp de Reconhecimento de Medicamentos e Análise de Riscos
+# Project Model Canvas: Sistema de Gerenciamento de Vendas e Reservas de Salgados
 
 ## 1. Objetivos e Justificativas
-O projeto visa desenvolver um sistema que permite aos usuários capturar fotos de medicamentos para identificação, analisar os riscos associados ao uso dos medicamentos e conscientizar sobre automedicação. O objetivo é fornecer uma ferramenta que ajude os usuários a gerenciar sua medicação de forma informada e segura, minimizando riscos para a saúde.
+- **Objetivo**: Desenvolver um site de gerenciamento de vendas e reservas de salgados vendidos por grupos autônomos a fim de facilitar a realização de reservas pelos clientes e o controle do estoque pelos funcionários.
+- **Justificativa**: Com o sistema atual do grupo autônomo tem enfrentado problemas com rastrear a venda e reserva que tem gerado desfalques financeiros no final do dia. O sistema proposto auxiliria o grupo a ter uma gestão mais eficiente e eficaz do estoque e da renda.
 
 ## 2. Requisitos Principais
-- Captura e upload de imagens de medicamentos.
-- Identificação automática do medicamento a partir da foto.
-- Exibição da porcentagem de compatibilidade da imagem com o medicamento identificado.
-- Listagem de possíveis medicamentos e porcentuais de compatibilidade.
-- Análise de riscos associados ao medicamento, considerando comorbidades do usuário.
-- Atualização e visualização do histórico de medicamentos e análises.
-- Opção para excluir a conta e todos os dados associados.
+- Interface amigável e acessível tanto web quanto mobile.
+- Funcionalidades para realizar vendas e reservas online.
+- Algoritmos para analisar tendências de venda a fim de auxiliar na reposição do estoque.
+- Funcionalidades de gerenciamento e controle de funcionários.
 
 ## 3. Stakeholders
-- **Usuários Finais**: Pessoas que utilizam medicamentos e precisam de informações sobre a segurança e interações dos mesmos.
-- **Equipe de Desenvolvimento**: Estudantes e acadêmicos responsáveis pela construção e desenvolvimento do webapp.
+- Clientes que compram salgados: Usuários da área de reserva do sistema.
+- Funcionários do grupo autônomo: Usuários da área de vendas e gerenciamento de estoque do sistem
+- Gerente do grupo autônomo: Administra a área operacional e de relatórios do sistema.
+- Desenvolvedores e designers que vão criar e manter o site.
 
 ## 4. Entregas
-- **Sistema Funcional**: Um aplicativo completo com funcionalidades de captura de imagem, identificação de medicamentos, análise de riscos e sugestões de substituições.
-- **Documentação do Usuário**: Guias e tutoriais para ajudar os usuários a utilizar a aplicação.
-- **Documentação Técnica**: Documentação para desenvolvedores sobre a arquitetura do sistema, APIs e manutenção.
-- **Documentação de Gerenciamento de Projeto**: Documentação detalhada sobre estratégias de gerenciamento utilizadas no desenvolvimento do projeto.
-- **Aplicação de Testes**: Testes rigorosos para garantir a qualidade do software, incluindo testes funcionais e não-funcionais.
+- Entrega do protótipo inicial com as principais funcionalidades do sistema, como o gerenciamento de vendas e reserva dos salgados.
+- Sistema funcional completo que permita aos funcionários gerenciar vendas dos salgados e visualizar relatórios de vendas, além de possibilitar que os clientes realizem cadastro no site e reservas dos salgados.
+- Documentação detalhada do sistema desenvolvido, incluindo descrições técnicas e funcionais.
+- Conjunto de testes para garantir a qualidade do software, contendo um relatório detalhado dos testes realizados, especificando as falhas encontradas e os resultados finais.
 
 ## 5. Marcos e Cronograma
-- **Marcos**:
-  1. Conclusão da fase de planejamento e definição de requisitos.
-  2. Desenvolvimento do protótipo inicial.
-  3. Implementação das funcionalidades principais (captura de imagem, identificação, análise de riscos).
-  4. Aplicação de testes e ajustes baseados em feedback.
-  5. Entrega das documentações.
-- **Cronograma**:
-  - **Sprint 0**: Planejamento e definição de requisitos.
-  - **Sprint 1**: Desenvolvimento do protótipo e implementação de estrutura de código.
-  - **Sprint 2**: Escrita de testes de código e desenvolvimento.
-  - **Sprint 3**: Desenvolvimento da aplicação.
-  - **Sprint 4**: Testes e ajustes finais.
+- Semana 2: Planejamento e definição de requisitos do projeto.
+- Semana 5: Entrega do protótipo.
+- Semana 8: Realização de testes.
+- Semana 12: Entrega da versão final do sistema.
 
 ## 6. Riscos e Suposições
-- **Riscos**:
-  - **Identificação Incorreta**: A tecnologia de reconhecimento de imagem pode não identificar corretamente todos os medicamentos.
-  - **Interações Inesperadas**: Os dados sobre interações medicamentosas podem não ser completos ou atualizados.
-  - **Privacidade dos Dados**: Problemas com a segurança e a privacidade dos dados dos usuários.
-- **Suposições**:
-  - As APIs e bibliotecas de reconhecimento de imagem fornecerão precisão suficiente para a identificação de medicamentos.
-  - Os dados de interações medicamentosas e comorbidades estarão atualizados e disponíveis.
-  - Os usuários fornecerão informações precisas e estarão dispostos a adotar a nova ferramenta.
+- Risco de violação da LGPD devido a possíveis falhas nas implementações de segurança e privacidade dos dados dos clientes e funcionários.
+- Suposição de que os clientes preferem visualizar online os salgados disponíveis e realizar reservas digitalmente.
 
 ## 7. Orçamento
-- **Desenvolvimento**: Em um projeto acadêmico, o principal investimento é o tempo dedicado pelos alunos. Presume-se que as ferramentas e tecnologias necessárias serão gratuitas ou disponibilizadas pela instituição. 
+- Inicialmente, não há necessidade de recursos financeiros para o desenvolvimento da aplicação. Utilizaremos ferramentas disponibilizadas de forma gratuita para realização do projeto e também tempo dos estudantes envolvidos na produção.
+- Para manutenção e melhoria da aplicação, será necessário tempo e disponibilidade dos desenvolvedores.
 
 ## 8. Premissas
-- **Premissas**: É necessário que os usuários tenham acesso a uma conexão de internet estável para utilizar o webapp de forma eficaz. Além disso, supomos que a tecnologia de reconhecimento de imagem será suficientemente precisa para identificar medicamentos de maneira confiável, e que as informações sobre interações medicamentosas e comorbidades serão atualizadas e corretas.
-- **Impacto**: Essas premissas são essenciais para o funcionamento do webapp. A precisão do reconhecimento de imagem e a qualidade das informações disponíveis são cruciais para oferecer análises e sugestões de substituições seguras e precisas.
+Premissas:
+- Disponibilidade das bibliotecas usadas para funcionamento do software.
+- Acesso à internet por parte dos clientes e do profissional autônomo.
+Impacto:
+- Supomos que sem o acesso às bibliotecas e à internet, a aplicação não poderá ser utilizada para os seus devidos fins.
 
 ## 9. Restrições
-  - **Tempo**: O projeto deve ser concluído dentro do prazo estipulado para o curso, o que impõe uma limitação de tempo significativa.
-    - **Impacto**: Esse prazo pode restringir a complexidade de algumas funcionalidades e a abrangência dos testes realizados, impactando a profundidade e a qualidade final do produto.
-  - **Tecnologia**: O uso de APIs de reconhecimento de imagem pode ser limitado em termos de capacidade e precisão. Além disso, a tecnologia disponível nos dispositivos dos usuários pode variar, afetando o desempenho do webapp.
-    - **Impacto**: Limitações tecnológicas podem resultar em menor precisão no reconhecimento de medicamentos e variações na experiência do usuário, comprometendo a confiabilidade e a eficácia do sistema.
-  - **Regulamentação**: O projeto deve estar em conformidade com regulamentações de proteção de dados e privacidade, o que pode adicionar complexidade ao gerenciamento e ao armazenamento de informações dos usuários.
-    - **Impacto**: A conformidade com regulamentações pode limitar a forma como os dados são coletados e armazenados, influenciando as funcionalidades disponíveis e a forma como o webapp lida com as informações dos usuários.
-
-
-
-
-
-
-
-
+- A aplicação terá restrição de tempo, pois o projeto terá de ser executado dentro do período do semestre, isso afeta o potencial da plataforma.
+- Restringir o uso de ferramentas gratuitas pode reduzir a qualidade da aplicação, dado que as ferramentas pagas possuem mais funcionalidades.
+- Como vamos solicitar dados pessoais, teremos que seguir à risca a LGPD para garantir a segurança das informações cadastradas.
