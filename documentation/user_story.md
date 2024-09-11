@@ -81,38 +81,20 @@ Eu gostaria de visualizar os dados de vendas e reservas
 Para avaliar e tomar decisões mais concisas
 ```
 ### História do Usuário 14
-``` 
-Como gerente
-Eu gostaria de acessar a página de fidelização
-Para realizar modificações nas promoções
-```
-### História do Usuário 15
-```
-Como cliente
-Eu gostaria de visualizar meu cartão fidelidade
-Para verificar o saldo de pontos
-```
-### História do Usuário 16
 ```
 Como gerente
 Eu gostaria de calcular valores como lucro por turno
 Para administrar melhor meu negócio
 ```
-### História do Usuário 17
+### História do Usuário 15
 ```
 Como gerente
-Eu gostaria de visualizar quantidade de reservas e cancelamentos
+Eu gostaria de visualizar quantidade de reservas
 Para verificar as preferências dos clientes
 ```
-### História do Usuário 18
+### História do Usuário 16
 ```
 Como gerente
 Eu gostaria de acessar a lista de clientes cadastrados e suas informações
-Para manter o controle dos cartões fidelidade
-```
-### História do Usuário 19
-```
-Como gerente
-Eu gostaria de visualizar quantidade por tipo de pagamento
-Para gerenciar melhor a contabilidade
+Para manter o controle de clientes
 ```
