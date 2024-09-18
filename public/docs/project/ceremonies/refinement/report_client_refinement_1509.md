@@ -2,9 +2,9 @@
 
 ## 1. Informações Gerais
 
-**Data**: 14/09/2024
+**Data**: 15/09/2024
 
-**Hora**: 16:00 - 17:00
+**Hora**: 09:00 - 10:00
 
 **Local/Plataforma**: Google Meets
 
