@@ -4,7 +4,7 @@
 
 **Data**: 15/09/2024
 
-**Hora**: 09:00 - 10:00
+**Hora**: 18:00 - 19:00
 
 **Local/Plataforma**: Google Meets
 
@@ -12,7 +12,7 @@
 
 **Participantes**:
 
-- Maria Antonia Monteiro da Silva(Funcionária)
+- Dayane Camile Bezerra de Lima(Líder da Equipe)
 
 ## 2. Objetivos da Reunião
 
@@ -29,7 +29,7 @@ O objetivo desta reunião de refinamento foi revisar e discutir os itens do back
     - Inspirações para a arquitetura de informação do site
     - Jornada para a escolha do logo
 - **Ajustes Necessários**: 
-    - Nenhum necessário
+    - Nenhum acréscimo
 - **Responsável pelos Ajustes**: -
 - **Estimativa (Story Points)**: -
 
@@ -42,7 +42,8 @@ O objetivo desta reunião de refinamento foi revisar e discutir os itens do back
     - Funcionamento do menu superior para desktop
     - Funcionamento do menu lateral para mobile
 - **Ajustes Necessários**: 
-    - Modificação de um botão para adicionar link para grupo de whatsapp da organização
+    - Mudar o link do botão central para levar para a tela de cadastro ao invés da de login
+    - Ajustar o texto quebrado na tela mobile
 - **Responsável pelos Ajustes**: Celeste Azul Gomes de Gouveia Pereira
 - **Estimativa (Story Points)**: 1
 
@@ -55,9 +56,9 @@ O objetivo desta reunião de refinamento foi revisar e discutir os itens do back
     - Uso de e-mail como fator de validação da conta
     - Possibilidade de cadastro com conta Google ou Facebook
 - **Ajustes Necessários**: 
-    - Criar tela simples para “Esqueci minha senha”
-- **Responsável pelos Ajustes**: Celeste Azul Gomes de Gouveia Pereira
-- **Estimativa (Story Points)**: 3
+    - Nenhum acréscimo
+- **Responsável pelos Ajustes**: -
+- **Estimativa (Story Points)**: -
 
 ### 3.2. Item 4: Protótipo em alto nível da HU 2
 
@@ -66,9 +67,9 @@ O objetivo desta reunião de refinamento foi revisar e discutir os itens do back
     - Validação do login do funcionário por e-mail ao invés de cpf
     - Visualização e validação da página de login do funcionário
 - **Ajustes Necessários**:
-    - Nenhum necessário
-- **Responsável pelos Ajustes**: -
-- **Estimativa (Story Points)**: -
+    - Modificar as cores para ficar compatível com o botão de login
+- **Responsável pelos Ajustes**: Celeste Azul Gomes de Gouveia Pereira
+- **Estimativa (Story Points)**: 1
 
 ### 3.2. Item 5: Protótipo em alto nível da HU 11
 
@@ -78,9 +79,9 @@ O objetivo desta reunião de refinamento foi revisar e discutir os itens do back
     - Opção da visualização do estoque como em card ou em lista
     - Área de clique dos botões do carrinho na versão mobile
 - **Ajustes Necessários**: 
-    - Nenhum acréscimo
-- **Responsável pelos Ajustes**: -
-- **Estimativa (Story Points)**: -
+    - Retirar uma variação de componente para simplificar o processo pro usuário
+- **Responsável pelos Ajustes**: Celeste Azul Gomes de Gouveia Pereira
+- **Estimativa (Story Points)**: 2
 
 ### 3.2. Item 6: Protótipo em alto nível da HU 8
 
@@ -89,9 +90,8 @@ O objetivo desta reunião de refinamento foi revisar e discutir os itens do back
     - Visualização e validação das telas
     - Discussão sobre a necessidade de uma tela para ver os pedidos de forma detalhada
     - Discussão sobre a melhor forma de visualizar o histórico de reservas para o cliente
-    - Ideias de features futuras envolvendo refazer uma reserva ou entrar em contato com o cliente a partir de uma reserva específica
 - **Ajustes Necessários**: 
-    - Conversar sobre viabilidade técnica pro MVP com a representante dos devs
+    - Adicionar alerta de pop-up de confirmação da reserva
 - **Responsável pelos Ajustes**: Celeste Azul Gomes de Gouveia Pereira
 - **Estimativa (Story Points)**: 1
 
@@ -104,10 +104,12 @@ O objetivo desta reunião de refinamento foi revisar e discutir os itens do back
     - Discussão sobre a utilização de listas ou carros na área de reposição de estoque
     - Possibilidade de começar uma nova venda mais facilmente
 - **Ajustes Necessários**: 
-    - Encontrar uma solução para nova venda de forma mais prática para o funcionário
-    - Adicionar a opção do gerente colocar um funcionário para cobrir turno de outro
+    - Adicionar uma tela específica para finalizar venda
+    - Modificar atualização de estoque para visualização em lista
+    - Adicionar barra de busca nas telas de gerenciamento de clientes, produtos e funcionários
+    - Modificar a navegação para priorizar gerenciamento e relatórios
 - **Responsável pelos Ajustes**: Celeste Azul Gomes de Gouveia Pereira
-- **Estimativa (Story Points)**: 3
+- **Estimativa (Story Points)**: 4
 
 ### 3.2. Item 8: Seleção de estatísticas para gerenciamento
 
@@ -121,24 +123,37 @@ O objetivo desta reunião de refinamento foi revisar e discutir os itens do back
 - **Responsável pelos Ajustes**: -
 - **Estimativa (Story Points)**: -
 
+### 3.2. Item 9: Apresentação dos comentários dos clientes
+
+- **Descrição**: Detalhamento dos pedidos e sugestões feitas pelos clientes nas duas reuniões anteriores
+- **Pontos discutidos**:
+    - Discussão sobre os pontos levantados pelos clientes
+    - Discussão sobre aplicabilidade das telas sugeridas no MVP
+- **Ajustes Necessários**: 
+    - Nenhum acréscimo
+- **Responsável pelos Ajustes**: -
+- **Estimativa (Story Points)**: -
+
 
 ## 4. Priorização dos Itens
 
 Após a discussão, os seguintes itens foram priorizados para a próxima sprint:
 
 - **Item 2**: Prioridade Baixa
-- **Item 3**: Prioridade Baixa
-- **Item 6**: Prioridade Alta
-- **Item 7**: Prioridade Média
+- **Item 4**: Prioridade Baixa
+- **Item 5**: Prioridade Média
+- **Item 6**: Prioridade Média
+- **Item 7**: Prioridade Alta
 
 ## 5. Ações Decorrentes
 
 | Ação | Responsável | Prazo |
 | --- | --- | --- |
-| Fazer modificação do item 2 | Celeste Azul Gomes de Gouveia Pereira | 23/09 |
-| Criação de tela nova do item 3 | Celeste Azul Gomes de Gouveia Pereira | 23/09 |
-| Conversar com dev sobre item 6 | Celeste Azul Gomes de Gouveia Pereira | 15/09 |
-| Idealizar tela do item 7 | Celeste Azul Gomes de Gouveia Pereira | 20/09 |
+| Fazer ajustes do item 2 | Celeste Azul Gomes de Gouveia Pereira | 23/09 |
+| Ajustar cores do item 4 | Celeste Azul Gomes de Gouveia Pereira | 23/09 |
+| Modificar o componente do item 5 | Celeste Azul Gomes de Gouveia Pereira | 21/09 |
+| Adicionar o alerta do item 6 | Celeste Azul Gomes de Gouveia Pereira | 21/09 |
+| Idealizar e refatorar telas do item 7 | Celeste Azul Gomes de Gouveia Pereira | 23/09 |
 
 ## 6. Próxima Reunião
 
