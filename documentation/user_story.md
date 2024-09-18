@@ -11,8 +11,8 @@ Para realizar login
 ### História do Usuário 2
 ```
 Como funcionário
-Eu gostaria de me cadastrar 
-Para realizar login
+Eu gostaria de fazer login
+Para acessar o sistema
 ```
 ### História do Usuário 3
 ```
@@ -35,7 +35,7 @@ Para visualizar a plataforma
 ### História do Usuário 6
 ```
 Como gerente
-Eu gostaria de visualizar e remover vendedores cadastrados
+Eu gostaria de visualizar, remover e cadastrar vendedores
 Para gerenciar meu negócio
 ```
 ### História do Usuário 7
