@@ -1,8 +1,5 @@
 # Documento de Retrospectiva da Sprint (Sprint Retrospective)
 
-
-
-
 ## Equipe
 - **Scrum Master**: Dayane Lima
 - **Product Owner**: Celeste Azul
