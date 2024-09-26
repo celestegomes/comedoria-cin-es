@@ -2,12 +2,14 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { UserPlus, CalendarPlus, MapPin, CreditCard, Package, Instagram, Facebook, Linkedin } from 'lucide-react'
 import CoxinhaImage from '../../../public/assets/coxinha_home_page.png'
+import Navbar from '@/components/ui/Navbar'
 import ".././globals.css";
 
 export default function LandingPage() {
   return (
     <>
-      <header className="relative h-screen">
+      <Navbar />
+      <header className="relative h-[calc(100vh-64px)]">
         <Image
           src={CoxinhaImage}
           alt="Coxinhas fritas"
@@ -16,17 +18,10 @@ export default function LandingPage() {
           className="z-0"
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 z-10">
-          <nav className="flex justify-between items-center p-4">
-            <div className="text-white text-2xl font-bold">Comedoria</div>
-            <div>
-              <Button variant="outline" className="mr-2">Área do Cliente</Button>
-              <Button>Área do Funcionário →</Button>
-            </div>
-          </nav>
-          <div className="flex flex-col items-center justify-center h-full text-white">
+        <div className="flex flex-col items-start justify-center h-full text-white pl-8 md:pl-16 lg:pl-24">
             <h1 className="text-6xl font-bold mb-4">Comedoria</h1>
             <p className="text-2xl mb-8">Um salgado do tamanho da sua fome</p>
-            <Button size="lg" className="bg-green-600 hover:bg-green-700">
+            <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
               Se torne um cliente
             </Button>
           </div>
