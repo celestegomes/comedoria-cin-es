@@ -4,7 +4,6 @@ import logozinhoImageWhite from '../../../public/assets/logo_icon_branco.png'
 
 export default function Footer (){
     return (
-
         <footer className="bg-[#8B1A1A] text-white py-6">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-start">

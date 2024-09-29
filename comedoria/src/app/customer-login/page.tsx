@@ -42,7 +42,6 @@ export default function CostumerLogin() {
               </div>
             </div>
           </div>
-
           <div className="absolute left-[840px] z-10 bg-black bg-opacity-40 p-8 rounded-lg w-[30%]">
             <h2 className="text-3xl font-bold text-[#8B4513] mb-2">Cadastre-se</h2>
             <p className="text-gray-600 mb-4">É de graça!</p>

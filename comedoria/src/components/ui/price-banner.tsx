@@ -2,6 +2,7 @@ import Image from 'next/image'
 import BannerImage from '../../../public/assets/price-banner-image.svg'
 
 export default function PriceBanner() {
+  
     return (
       <div className="relative h-[176px]">
         <Image

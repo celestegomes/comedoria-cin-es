@@ -1,14 +1,15 @@
 import { Button } from "@/components/ui/button"
 import Image from 'next/image'
-import logozinhoImage from '../../../public/assets/logo_icon.png'
+import logozinho from '../../../public/assets/logo_icon.png'
 import { ArrowRight } from 'lucide-react'
 
 export default function NavbarLogged() {
+  
   return (
     <nav className="flex justify-between items-center px-4 py-2 bg-white w-full border-b border-gray-200">
       <div className="flex items-center">
         <Image
-          src={logozinhoImage}
+          src={logozinho}
           alt="Comedoria Logo"
           width={40} 
           height={40} 

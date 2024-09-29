@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { UserPlus, CalendarPlus, MapPin, CreditCard, Package, Instagram, Facebook, Linkedin } from 'lucide-react'
 import CoxinhaImage from '../../../public/assets/coxinha_home_page.png'
-import logozinhoImageWhite from '../../../public/assets/logo_icon_branco.png'
 import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/footer'
 import ".././globals.css";
