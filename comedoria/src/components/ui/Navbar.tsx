@@ -1,16 +1,21 @@
+import Image from 'next/image'
+import {Logo} from '../../app/assets'
 import { Button } from "@/components/ui/button"
-import { Pizza } from 'lucide-react'
+import "../../app/globals.css";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center p-4 bg-white w-full">
-      <div className="flex items-center">
-        <Pizza className="w-6 h-6 text-[#8B1A1A] mr-2" />
-        <div className="text-[#8B1A1A] text-2xl font-bold">Comedoria</div>
+    <nav className="flex justify-between items-center p-4 w-full bg-background fixed top-0 left-0 z-50">
+      <div className="flex items-center justify-start">
+        <Image
+          src={Logo}
+          alt={"Logo"}
+          className="w-36 h-auto ml-12"
+        />
       </div>
-      <div>
-        <Button variant="outline" className="mr-2">Área do Cliente</Button>
-        <Button>Área do Funcionário →</Button>
+      <div> 
+        <Button size="lg" variant="btnGreen" className="mr-2 rubik-title">Área do Cliente →</Button>
+        <Button size="lg" variant="btnWine" className="mr-12 rubik-title">Área do Funcionário →</Button>
       </div>
     </nav>
   )
