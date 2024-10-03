@@ -15,11 +15,6 @@ const InventorySchema = new Schema (
         price: {
             type: Number,
             required: true
-        },
-        flavor: {
-            type: [String],
-            enum: ["chicken", "catupiry", "cheese", "meat", "vegetarian"], 
-            required: true
         }
     },
     {

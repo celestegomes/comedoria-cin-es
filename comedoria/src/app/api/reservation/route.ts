@@ -1,96 +1,116 @@
 import { NextResponse } from 'next/server';
 import connect from '@/lib/db';
 import Reservation from '@/lib/modals/reservation';
-import Customer from '@/lib/modals/customer';
 
-// Listar todas as reservas, buscar reservas por status ou por cliente
+// Listar todas as reservas ou buscar por uma reserva específica
+// GET: Listar todas as reservas ou buscar por ID de cliente e status
 export const GET = async (request: Request) => {
-    try {
-      await connect();
-  
-      const url = new URL(request.url);
-      const status = url.searchParams.get('status'); // Buscar status das reservas
-      const customerEmail = url.searchParams.get('customer_email'); // Buscar reservas por cliente
-  
-      // Se o status estiver presente, filtre as reservas com base nele
-      if (status) {
-        const reservations = await Reservation.find({ status: status }).populate('customer');
-        if (reservations.length === 0) {
-          return new NextResponse('No reservations found with the specified status', { status: 404 });
-        }
-        return new NextResponse(JSON.stringify(reservations), { status: 200 });
+  try {
+    await connect();
+    
+    // Extrair parâmetros da query string
+    const url = new URL(request.url);
+    const customerId = url.searchParams.get('customer_id'); // Buscar reservas pelo ID do cliente
+    const status = url.searchParams.get('status'); // Buscar reservas pelo status
+
+    // Se o customerId estiver presente, busque as reservas desse cliente
+    if (customerId) {
+      const reservations = await Reservation.find({ customer: customerId }).populate('customer');
+      if (reservations.length === 0) {
+        return new NextResponse('No reservations found for the specified customer', { status: 404 });
       }
-  
-      // Se o email do cliente estiver presente, encontre o cliente e busque as reservas dele
-      if (customerEmail) {
-        const customer = await Customer.findOne({ email: customerEmail });
-        
-        // Se o cliente não for encontrado
-        if (!customer) {
-          return new NextResponse('Customer not found', { status: 404 });
-        }
-  
-        // Buscar reservas associadas ao cliente
-        const reservations = await Reservation.find({ customer: customer._id }).populate('customer');
-        if (reservations.length === 0) {
-          return new NextResponse('No reservations found for the specified customer', { status: 404 });
-        }
-        return new NextResponse(JSON.stringify(reservations), { status: 200 });
-      }
-  
-      // Caso contrário, retorne todas as reservas
-      const reservations = await Reservation.find().populate('customer');
       return new NextResponse(JSON.stringify(reservations), { status: 200 });
-    } catch (error: any) {
-      return new NextResponse(error.message, { status: 500 });
     }
+
+    // Se o status estiver presente, busque as reservas com base no status
+    if (status) {
+      const reservations = await Reservation.find({ status: status === 'true' }).populate('customer');
+      if (reservations.length === 0) {
+        return new NextResponse('No reservations found with the specified status', { status: 404 });
+      }
+      return new NextResponse(JSON.stringify(reservations), { status: 200 });
+    }
+
+    // Se nenhum parâmetro for passado, retorne todas as reservas
+    const reservations = await Reservation.find().populate('customer');
+    return new NextResponse(JSON.stringify(reservations), { status: 200 });
+
+  } catch (error: any) {
+    return new NextResponse(error.message, { status: 500 });
+  }
 };
-  
+
 // Criar uma nova reserva
 export const POST = async (request: Request) => {
-    const { customer, order, price, shift } = await request.json();
-  
-    // Validação simples
-    if (!customer || !order || !price || !shift) {
-      return new NextResponse('All fields (customer, order, price, shift) are required', { status: 400 });
+  try {
+    const { customer, order, shift } = await request.json();
+
+    // Validação dos campos obrigatórios
+    if (!customer || !order || !shift) {
+      return new NextResponse('All fields (customer, order, shift) are required', { status: 400 });
     }
-  
-    try {
-      await connect();
-      const newReservation = new Reservation({
-        customer,
-        order,
-        price,
-        shift,
-        status: true // status padrão como "ativo"
-      });
-      await newReservation.save();
-      return new NextResponse(JSON.stringify(newReservation), { status: 201 });
-    } catch (error: any) {
-      return new NextResponse(error.message, { status: 500 });
-    }
+
+    await connect();
+
+    // Criar uma nova reserva
+    const newReservation = new Reservation({ customer, order, shift });
+    await newReservation.save();
+    return new NextResponse(JSON.stringify(newReservation), { status: 201 });
+  } catch (error: any) {
+    return new NextResponse(error.message, { status: 500 });
+  }
 };
-  
-// Deletar reserva por ID
+
+// Atualizar o status de uma reserva por ID
+export const PUT = async (request: Request) => {
+  try {
+    const url = new URL(request.url);
+    const reservationId = url.searchParams.get('id'); // ID da reserva a ser atualizada
+
+    if (!reservationId) {
+      return new NextResponse('Reservation ID is required', { status: 400 });
+    }
+
+    const { status } = await request.json();
+
+    // Validação do campo status
+    if (typeof status !== 'boolean') {
+      return new NextResponse('Status must be a boolean', { status: 400 });
+    }
+
+    await connect();
+
+    const updatedReservation = await Reservation.findByIdAndUpdate(
+      reservationId,
+      { status },
+      { new: true }
+    );
+
+    return new NextResponse(JSON.stringify(updatedReservation), { status: 200 });
+  } catch (error: any) {
+    return new NextResponse(error.message, { status: 500 });
+  }
+};
+
+// Deletar uma reserva por ID
 export const DELETE = async (request: Request) => {
-    try {
-      await connect();
-  
-      const url = new URL(request.url);
-      const reservationId = url.searchParams.get('id'); // Obter o ID da reserva da query string
-  
-      if (!reservationId) {
-        return new NextResponse('Reservation ID is required', { status: 400 });
-      }
-  
-      const deletedReservation = await Reservation.findByIdAndDelete(reservationId);
-      if (!deletedReservation) {
-        return new NextResponse('Reservation not found', { status: 404 });
-      }
-  
-      return new NextResponse('Reservation deleted successfully', { status: 200 });
-    } catch (error: any) {
-      return new NextResponse(error.message, { status: 500 });
+  try {
+    const url = new URL(request.url);
+    const reservationId = url.searchParams.get('id'); // ID da reserva a ser deletada
+
+    if (!reservationId) {
+      return new NextResponse('Reservation ID is required', { status: 400 });
     }
+
+    await connect();
+
+    const deletedReservation = await Reservation.findByIdAndDelete(reservationId);
+    if (!deletedReservation) {
+      return new NextResponse('Reservation not found', { status: 404 });
+    }
+
+    return new NextResponse('Reservation deleted successfully', { status: 200 });
+  } catch (error: any) {
+    return new NextResponse(error.message, { status: 500 });
+  }
 };
-  

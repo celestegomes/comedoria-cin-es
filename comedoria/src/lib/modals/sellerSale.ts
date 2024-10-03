@@ -2,20 +2,13 @@ import { Schema, model, models } from "mongoose";
 
 const SaleSchema = new Schema (
     {   
-        // Caso seja vendida uma reserva, confere reserva a ser vendida, localizando informações de pedido e preço
-        reservation: {
-            type: Schema.Types.ObjectId,
-            ref: 'Reservation', 
-        },
         // Recebe vendedor responsável
         seller: {
             type: Schema.Types.ObjectId, // Referência ao modelo Seller
             ref: 'Seller', // Relaciona com o Seller
             required: true
         },
-        // Caso seja uma venda sem reserva, irá receber o que foi pedido e calculará o preço total
-        // Caso seja uma venda com reserva, irá pegar essas informações do próprio objeto de reserva
-
+        // Venda sem reserva, irá receber o que foi pedido
         // O pedido pode conter mais de um mesmo salgado ou de salgados diferentes 
         order: [
             {
@@ -28,12 +21,7 @@ const SaleSchema = new Schema (
                     required: true
                 }
             }
-        ],
-        // Preço calculado a partir dos salados do pedido
-        price: {
-            type: Number,
-            required: true
-        },
+        ]
     },
     {
         // Registra data de criação e atualização para gerenciamento

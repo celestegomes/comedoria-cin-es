@@ -21,11 +21,6 @@ const ReservationSchema = new Schema (
                 }
             }
         ],
-        // Preço calculado a partir dos salados do pedido
-        price: {
-            type: Number,
-            required: true
-        },
         // Para controle de reservas por turno
         shift: {
             type: String,

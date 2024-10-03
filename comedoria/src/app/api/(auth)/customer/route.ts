@@ -3,7 +3,6 @@ import connect from '@/lib/db';
 import Customer from '@/lib/modals/customer';
 
 // Listar clientes ou pegar informações de cliente específico
-// Listar clientes ou pegar informações de cliente específico
 export const GET = async (request: Request) => {
   try {
     await connect();

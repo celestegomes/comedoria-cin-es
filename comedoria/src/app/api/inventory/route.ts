@@ -10,22 +10,14 @@ export const GET = async (request: Request) => {
       // Extrair parâmetros da query string
       const url = new URL(request.url);
       const productName = url.searchParams.get('product_name'); // Obter o nome do produto
-      const flavor = url.searchParams.get('flavor'); // Obter o sabor do produto
   
-      // Se o nome do produto estiver presente nos parâmetros, buscar o produto específico
+      // Se o nome do produto estiver presente nos parâmetros, buscar produtos que contenham esse nome
       if (productName) {
-        const product = await Inventory.findOne({ product_name: productName });
-        if (!product) {
-          return new NextResponse('Product not found', { status: 404 });
-        }
-        return new NextResponse(JSON.stringify(product), { status: 200 });
-      }
-  
-      // Se o sabor estiver presente nos parâmetros, buscar produtos com o sabor especificado
-      if (flavor) {
-        const products = await Inventory.find({ flavor: flavor });
+        const products = await Inventory.find({
+          product_name: { $regex: productName, $options: 'i' } 
+        });
         if (products.length === 0) {
-          return new NextResponse('No products found with the specified flavor', { status: 404 });
+          return new NextResponse('No products found', { status: 404 });
         }
         return new NextResponse(JSON.stringify(products), { status: 200 });
       }
@@ -41,16 +33,28 @@ export const GET = async (request: Request) => {
 
 // POST: Adicionar um novo produto
 export const POST = async (request: Request) => {
-  const { product_name, stock, price, flavor } = await request.json();
+  const { product_name, stock, price } = await request.json();
 
   // Validação dos campos obrigatórios
-  if (!product_name || stock === undefined || !price || !flavor) {
-    return new NextResponse('All fields (product_name, stock, price, flavor) are required', { status: 400 });
+  if (!product_name || !price) {
+    return new NextResponse('All fields (product_name, price) are required', { status: 400 });
+  }
+
+  const existingProduct = await Inventory.findOne({ product_name });
+  if (existingProduct) {
+    return new NextResponse('Product already exists', { status: 409 });
   }
 
   try {
     await connect();
-    const newProduct = new Inventory({ product_name, stock, price, flavor });
+    let newProduct = null
+
+    if (stock) {
+      newProduct = new Inventory({ product_name, stock, price });
+    } else {
+      newProduct = new Inventory({ product_name, price });
+    }
+    
     await newProduct.save();
     return new NextResponse(JSON.stringify(newProduct), { status: 201 });
   } catch (error: any) {
