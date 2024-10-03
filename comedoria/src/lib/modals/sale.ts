@@ -8,7 +8,6 @@ const SaleSchema = new Schema (
             ref: 'Seller', // Relaciona com o Seller
             required: true
         },
-        // Venda sem reserva, irá receber o que foi pedido
         // O pedido pode conter mais de um mesmo salgado ou de salgados diferentes 
         order: [
             {
@@ -21,7 +20,20 @@ const SaleSchema = new Schema (
                     required: true
                 }
             }
-        ]
+        ],
+        reservation_id: {
+            type: String,
+            default: ""
+        },
+        discount: {
+            type: Boolean,
+            default: false
+        },
+        payment: {
+            type: String,
+            enum: ['cash', 'credit_card', 'debit_card', 'pix'],
+            required: true
+        }
     },
     {
         // Registra data de criação e atualização para gerenciamento
