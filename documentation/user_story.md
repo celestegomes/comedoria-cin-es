@@ -77,22 +77,16 @@ Para evitar prejuízos
 ### História do Usuário 13
 ```
 Como gerente
-Eu gostaria de visualizar as reservas
-Para verificar as preferências dos clientes
-```
-### História do Usuário 14
-```
-Como gerente
 Eu gostaria de visualizar, cadastrar, editar e remover vendedores
 Para gerenciar meu negócio
 ```
-### História do Usuário 15
+### História do Usuário 14
 ```
 Como gerente
 Eu gostaria de visualizar, cadastrar, editar e remover produtos
 Para gerenciar meu cardápio
 ```
-### História do Usuário 16
+### História do Usuário 15
 ```
 Como gerente
 Eu gostaria de acessar a lista de clientes cadastrados e suas informações
