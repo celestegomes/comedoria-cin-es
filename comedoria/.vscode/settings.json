@@ -1,0 +1,10 @@
+{
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit", // Aplica correções de todas as linguagens suportadas
+    "source.fixAll.eslint": "explicit", // Aplica todas as correções ESLint
+    "source.fixAll.ts": "explicit" // Aplica correções TypeScript
+    },
+    "typescript.tsdk": "./node_modules/typescript/lib", 
+    "typescript.enablePromptUseWorkspaceTsdk": true
+}
