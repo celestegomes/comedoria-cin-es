@@ -14,8 +14,8 @@ export default function Navbar() {
         />
       </div>
       <div> 
-        <Button size="lg" variant="btnGreen" className="mr-2 rubik-title">Área do Cliente →</Button>
-        <Button size="lg" variant="btnWine" className="mr-12 rubik-title">Área do Funcionário →</Button>
+        <Button size="lg" variant="btnGreen" className="mr-2 rubik-600">Área do Cliente →</Button>
+        <Button size="lg" variant="btnWine" className="mr-12 rubik-600">Área do Funcionário →</Button>
       </div>
     </nav>
   )
