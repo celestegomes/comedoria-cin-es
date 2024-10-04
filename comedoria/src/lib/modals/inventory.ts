@@ -15,6 +15,11 @@ const InventorySchema = new Schema (
         price: {
             type: Number,
             required: true
+        },
+        // Adiciona o campo para armazenar o link da imagem do produto
+        image_url: {
+            type: String, // URL da imagem do produto
+            default: ""
         }
     },
     {

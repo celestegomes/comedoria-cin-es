@@ -33,7 +33,7 @@ export const GET = async (request: Request) => {
 
 // POST: Adicionar um novo produto
 export const POST = async (request: Request) => {
-  const { product_name, stock, price } = await request.json();
+  const { product_name, stock, price, image_url } = await request.json();
 
   // Validação dos campos obrigatórios
   if (!product_name || !price) {
@@ -50,7 +50,7 @@ export const POST = async (request: Request) => {
     let newProduct = null
 
     if (stock) {
-      newProduct = new Inventory({ product_name, stock, price });
+      newProduct = new Inventory({ product_name, stock, price, image_url });
     } else {
       newProduct = new Inventory({ product_name, price });
     }
