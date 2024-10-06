@@ -1,4 +1,4 @@
-import { UserPlus, CalendarPlus, MapPin, CreditCard, Package, Instagram, Facebook, Linkedin } from 'lucide-react'
+import { UserPlus, CalendarPlus, MapPin, CreditCard, Package } from 'lucide-react'
 import "@/app/globals.css"
 
 export default function Process() {
