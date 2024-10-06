@@ -16,14 +16,19 @@ const connect = async () => {
     }
 
     try {
-        mongoose.connect(MONGODB_URI!, {
+        await mongoose.connect(MONGODB_URI!, {
             dbName: 'comedoriaes',
             bufferCommands: true
         });
         console.log("Connected to MongoDB");
-    } catch (err: any) {
-        console.log("Error connecting to MongoDB:", err);
-        throw new Error("Error: ", err);
+    } catch (err: unknown) {  // Use unknown instead of any
+        if (err instanceof Error) {
+            console.log("Error connecting to MongoDB:", err.message);
+            throw new Error(`Error: ${err.message}`);
+        } else {
+            console.log("An unknown error occurred");
+            throw new Error("An unknown error occurred");
+        }
     }
 };
 
