@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server';
 import connect from '@/lib/db';
 import Customer from '@/lib/modals/customer';
 
@@ -24,8 +24,8 @@ export const GET = async (request: Request) => {
     const customers = await Customer.find();
     return new NextResponse(JSON.stringify(customers), { status: 200 });
     
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error) {
+    return new NextResponse((error as Error).message, { status: 500 });
   }
 };
 
@@ -43,8 +43,8 @@ export const POST = async (request: Request) => {
     const newCustomer = new Customer({ email, password, username });
     await newCustomer.save();
     return new NextResponse(JSON.stringify(newCustomer), { status: 201 });
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error) {
+    return new NextResponse((error as Error).message, { status: 500 });
   }
 };
 
@@ -83,8 +83,8 @@ export const PUT = async (request: Request) => {
     }
 
     return new NextResponse(JSON.stringify(updatedCustomer), { status: 200 });
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error) {
+    return new NextResponse((error as Error).message, { status: 500 });
   }
 };
 
@@ -103,7 +103,7 @@ export const DELETE = async (request: Request) => {
       return new NextResponse('Customer not found', { status: 404 });
     }
     return new NextResponse('Customer deleted successfully', { status: 200 });
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error) {
+    return new NextResponse((error as Error).message, { status: 500 });
   }
 };
