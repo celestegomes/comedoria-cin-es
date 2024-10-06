@@ -3,37 +3,40 @@ import connect from '@/lib/db';
 import Inventory from '@/lib/modals/inventory';
 
 // Listar todos os produtos ou pegar informações de produto específico
-export const GET = async (request: Request) => {
-    try {
-      await connect();
-  
-      // Extrair parâmetros da query string
-      const url = new URL(request.url);
-      const productName = url.searchParams.get('product_name'); // Obter o nome do produto
-  
-      // Se o nome do produto estiver presente nos parâmetros, buscar produtos que contenham esse nome
-      if (productName) {
-        const products = await Inventory.find({
-          product_name: { $regex: productName, $options: 'i' } 
-        });
-        if (products.length === 0) {
-          return new NextResponse('No products found', { status: 404 });
-        }
-        return new NextResponse(JSON.stringify(products), { status: 200 });
+export const GET = async (request: Request): Promise<NextResponse> => {
+  try {
+    await connect();
+
+    // Extrair parâmetros da query string
+    const url = new URL(request.url);
+    const productName = url.searchParams.get('product_name'); // Obter o nome do produto
+
+    // Se o nome do produto estiver presente nos parâmetros, buscar produtos que contenham esse nome
+    if (productName) {
+      const products = await Inventory.find({
+        product_name: { $regex: productName, $options: 'i' }
+      });
+      if (products.length === 0) {
+        return new NextResponse('No products found', { status: 404 });
       }
-  
-      // Se nenhum parâmetro for passado, listar todos os produtos
-      const products = await Inventory.find();
       return new NextResponse(JSON.stringify(products), { status: 200 });
-  
-    } catch (error: any) {
+    }
+
+    // Se nenhum parâmetro for passado, listar todos os produtos
+    const products = await Inventory.find();
+    return new NextResponse(JSON.stringify(products), { status: 200 });
+
+  } catch (error: unknown) {
+    if (error instanceof Error) {
       return new NextResponse(error.message, { status: 500 });
     }
+    return new NextResponse('An unknown error occurred', { status: 500 });
+  }
 };
 
 // POST: Adicionar um novo produto
-export const POST = async (request: Request) => {
-  const { product_name, stock, price, image_url } = await request.json();
+export const POST = async (request: Request): Promise<NextResponse> => {
+  const { product_name, stock, price, image_url }: { product_name: string; stock?: number; price: number; image_url?: string } = await request.json();
 
   // Validação dos campos obrigatórios
   if (!product_name || !price) {
@@ -47,29 +50,32 @@ export const POST = async (request: Request) => {
 
   try {
     await connect();
-    let newProduct = null
+    let newProduct = null;
 
-    if (stock) {
+    if (stock !== undefined) {
       newProduct = new Inventory({ product_name, stock, price, image_url });
     } else {
       newProduct = new Inventory({ product_name, price });
     }
-    
+
     await newProduct.save();
     return new NextResponse(JSON.stringify(newProduct), { status: 201 });
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return new NextResponse(error.message, { status: 500 });
+    }
+    return new NextResponse('An unknown error occurred', { status: 500 });
   }
 };
 
 // PUT: Atualizar produto pelo nome
-export const PUT = async (request: Request) => {
+export const PUT = async (request: Request): Promise<NextResponse> => {
   try {
     await connect();
     const url = new URL(request.url);
     const productName = url.searchParams.get('product_name'); // Obter o nome do produto da query string
 
-    const updates = await request.json(); // Dados de atualização fornecidos no corpo da requisição
+    const updates: Record<string, unknown> = await request.json(); // Dados de atualização fornecidos no corpo da requisição
 
     // Remove campos vazios ou indefinidos do objeto de atualização
     Object.keys(updates).forEach(key => {
@@ -94,14 +100,17 @@ export const PUT = async (request: Request) => {
     }
 
     return new NextResponse(JSON.stringify(updatedProduct), { status: 200 });
-    
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return new NextResponse(error.message, { status: 500 });
+    }
+    return new NextResponse('An unknown error occurred', { status: 500 });
   }
 };
 
 // DELETE: Deletar produto pelo nome
-export const DELETE = async (request: Request) => {
+export const DELETE = async (request: Request): Promise<NextResponse> => {
   try {
     await connect();
     const url = new URL(request.url);
@@ -114,8 +123,11 @@ export const DELETE = async (request: Request) => {
     }
 
     return new NextResponse('Product deleted successfully', { status: 200 });
-    
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return new NextResponse(error.message, { status: 500 });
+    }
+    return new NextResponse('An unknown error occurred', { status: 500 });
   }
 };
