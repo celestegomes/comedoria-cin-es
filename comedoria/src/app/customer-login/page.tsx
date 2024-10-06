@@ -3,7 +3,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Facebook, Mail } from "lucide-react"
-import Navbar from '@/components/ui/navbar'
+import Navbar from '@/components/ui/Navbar'
 import Footer from '@/components/ui/footer'
 import "@/app/globals.css"
 
