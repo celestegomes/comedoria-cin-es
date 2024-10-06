@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import connect from '@/lib/db';
 import Staff from '@/lib/modals/staff';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, ModifyResult } from 'mongoose';
 
 // Define the Staff interface (adjust as needed based on your schema)
 interface StaffType {
@@ -110,11 +110,12 @@ export const DELETE = async (request: Request) => {
 
   try {
     await connect();
-    const deletedStaffMember: HydratedDocument<StaffType> | null = await Staff.findOneAndDelete({ email });
+    const deletedStaffMember: ModifyResult<HydratedDocument<StaffType>> | null = await Staff.findOneAndDelete({ email });
 
-    if (!deletedStaffMember) {
+    if (!deletedStaffMember || !deletedStaffMember.value) {
       return new NextResponse('Staff member not found', { status: 404 });
     }
+
     return new NextResponse('Staff member deleted successfully', { status: 200 });
   } catch (error: unknown) {
     return new NextResponse((error as Error).message, { status: 500 });
