@@ -35,8 +35,9 @@ export const GET = async (request: Request) => {
     const reservations = await Reservation.find().populate('customer');
     return new NextResponse(JSON.stringify(reservations), { status: 200 });
 
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    return new NextResponse(message, { status: 500 });
   }
 };
 
@@ -56,8 +57,9 @@ export const POST = async (request: Request) => {
     const newReservation = new Reservation({ customer, order, shift });
     await newReservation.save();
     return new NextResponse(JSON.stringify(newReservation), { status: 201 });
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    return new NextResponse(message, { status: 500 });
   }
 };
 
@@ -87,8 +89,9 @@ export const PUT = async (request: Request) => {
     );
 
     return new NextResponse(JSON.stringify(updatedReservation), { status: 200 });
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    return new NextResponse(message, { status: 500 });
   }
 };
 
@@ -110,7 +113,8 @@ export const DELETE = async (request: Request) => {
     }
 
     return new NextResponse('Reservation deleted successfully', { status: 200 });
-  } catch (error: any) {
-    return new NextResponse(error.message, { status: 500 });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'An unknown error occurred';
+    return new NextResponse(message, { status: 500 });
   }
 };
