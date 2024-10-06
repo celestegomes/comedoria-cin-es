@@ -12,7 +12,7 @@ export default function Mission() {
             <p className="rubik-400 text-gray-700 leading-relaxed">
               Garantir que nenhuma mente brilhante fique sem energia durante um dia de programação intensa
               ou brainstormings maratonas. Entre um código e outro, venha experimentar nossos salgados, que
-              são verdadeiros "breakpoints" de sabor! Afinal, quem disse que só os algoritmos merecem
+              são verdadeiros &quot;breakpoints&quot; de sabor! Afinal, quem disse que só os algoritmos merecem
               upgrades? Com nossos quitutes, você vai encontrar o equilíbrio perfeito entre bytes e bites,
               e com certeza vai sair daqui com um sorriso tão grande quanto uma linha de código sem bugs!
             </p>
